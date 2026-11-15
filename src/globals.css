@@ -1,0 +1,27 @@
+/*
+ * Global stylesheet — must stay the first import in the app entry.
+ *
+ * The `@layer` statement below fixes the cascade order for the whole app.
+ * A layer's rank is set by the first stylesheet that names it, so this file
+ * has to load before Astryx CSS, the theme module, or any component styles.
+ *
+ * Order: reset < theme < base < astryx-base < astryx-theme < components < utilities
+ * Tailwind utilities come last so `className` can intentionally override
+ * component defaults; Astryx theme overrides stay above component styles.
+ */
+@layer reset, theme, base, astryx-base, astryx-theme, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "@astryxdesign/core/reset.css";
+@import "@astryxdesign/core/astryx.css";
+@import "@astryxdesign/theme-neutral/theme.css";
+@import "@astryxdesign/core/tailwind-theme.css";
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* App styles from the starter template. Kept in the lowest layer so the
+   design system and its theme can override its element-level rules. */
+@import "./App.css" layer(reset);
+
+/* Edge-to-edge frame: safe-area variables, full-height app column, tab bar. */
+@import "./styles/safe-area.css" layer(components);

@@ -1,0 +1,5 @@
+"$schema" = "schemas/schema.json"
+
+[default]
+description = "Default permissions for the system-bars plugin: apply the system bar theme and read the safe-area insets."
+permissions = ["allow-set-theme", "allow-get-insets"]

@@ -1,0 +1,16 @@
+[package]
+name = "tauri-plugin-system-bars"
+version = "0.1.0"
+description = "Edge-to-edge system bars and safe-area insets for Android"
+edition = "2021"
+links = "tauri-plugin-system-bars"
+
+[lib]
+name = "tauri_plugin_system_bars"
+
+[build-dependencies]
+tauri-plugin = { version = "2", features = ["build"] }
+
+[dependencies]
+tauri = { version = "2", default-features = false }
+serde_json = "1"
