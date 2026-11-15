@@ -20,8 +20,10 @@ pnpm dev:stop         # 端口被占、进程残留时一键清掉
 
 降低同时构建线程
 
+```bash
 $env:CARGO_BUILD_JOBS=1
 pnpm tauri build
+```
 
 
 也可以在项目的 .cargo/config.toml 中永久设置：
