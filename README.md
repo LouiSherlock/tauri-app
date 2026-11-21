@@ -16,6 +16,17 @@ pnpm dev:stop         # 端口被占、进程残留时一键清掉
 
 ## 构建时候可能出现的问题
 
+## 构建注意事项
+
+### 修改 `identifier` 后 Android 启动失败
+
+`src-tauri/gen/android` 里的包名不会自动跟着 `tauri.conf.json` 变化。若看到
+`Project directory .../java/app/lingora does not exist`，二选一：
+
+- 手动同步：`MainActivity.kt` 的 `package`、`app/build.gradle.kts` 的
+  `namespace` / `applicationId`，以及 `java/<包路径>/` 目录；
+- 或者删除 `src-tauri/gen/android`，运行 `pnpm tauri android init` 重新生成。
+
 ### 内存引用冲突
 
 降低同时构建线程
