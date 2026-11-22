@@ -165,6 +165,11 @@ body {
   );
 }
 
+/*
+ * The close button turns bright red on hover/focus, the way the standard
+ * Windows close affordance does. The red is derived from the theme's error
+ * color so it still adapts to light and dark palettes.
+ */
 .desktop-close-button {
   --desktop-close-icon-color: var(--color-text-primary);
 }
@@ -173,7 +178,11 @@ body {
 .desktop-close-button:focus-visible {
   --desktop-close-icon-color: var(--color-on-dark);
   color: var(--color-on-dark);
-  background-color: var(--color-error);
+  background-color: color-mix(in srgb, var(--color-error) 62%, red);
+}
+
+.desktop-close-button:active {
+  background-color: color-mix(in srgb, var(--color-error) 82%, black);
 }
 
 .secondary-app-bar {
